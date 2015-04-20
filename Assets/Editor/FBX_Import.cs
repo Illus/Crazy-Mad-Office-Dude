@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
-public class FBX_Import : MonoBehaviour
+//Sets FBX Mesh Scale Factor to 1.0
+public class FBX_Import : AssetPostprocessor
 {
-	void Start ()
+	public const float importScale = 1.0f;
+
+	void OnPreprocessModel()
 	{
-
-	}
-
-	void Update ()
-	{
-
+		ModelImporter importer = assetImporter as ModelImporter;
+		importer.globalScale = importScale;
 	}
 }
